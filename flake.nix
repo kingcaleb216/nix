@@ -22,10 +22,10 @@
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
+
+        # System configuration
         ({ config, pkgs, ... }: {
-          imports = [
-            ./hardware-configuration.nix
-          ];
+          imports = [ ./hardware-configuration.nix ];
 
           networking.hostName = "laptop";
           time.timeZone = "America/New_York";
@@ -69,8 +69,10 @@
           system.stateVersion = "24.05";
         }),
 
+        # Home Manager module
         home-manager.nixosModules.home-manager,
 
+        # Home configuration for user caleb
         ({ config, pkgs, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
