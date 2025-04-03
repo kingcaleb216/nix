@@ -70,10 +70,11 @@
         }),
 
         home-manager.nixosModules.home-manager,
-        {
+
+        ({ config, pkgs, ... }: {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.caleb = { config, pkgs, ... }: {
+          home-manager.users.caleb = {
             home.username = "caleb";
             home.homeDirectory = "/home/caleb";
 
@@ -109,7 +110,7 @@
               /opt/repos/hyprland/theme.sh
             '';
           };
-        }
+        })
       ];
     };
   }
