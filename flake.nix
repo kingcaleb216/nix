@@ -85,7 +85,6 @@
                         useOSProber = false;
                         forceInstall = false;
                         devices = [ "nodev" ];
-                        targets = [ "x86_64-efi" ];
                      };
                   };
                   
