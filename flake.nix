@@ -48,7 +48,7 @@
                      pipewire wireplumber pavucontrol
                      xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland
                      mesa vulkan-loader
-                     fontconfig dejavu_fonts grub2
+                     fontconfig dejavu_fonts grub2_full
                      fastfetch
                   ];
 
