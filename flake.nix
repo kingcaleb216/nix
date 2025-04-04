@@ -11,7 +11,7 @@
          inputs.nixpkgs.follows = "nixpkgs";
       };
       hyprlandDotfiles = {
-         url = "github:kingcaleb216/hyprland";
+         url = "github:yourusername/dotfiles-hyprland";
          flake = false;
       };
    };
@@ -80,7 +80,7 @@
 
                   fonts.packages = with pkgs; [
                      dejavu_fonts
-                     nerdfonts
+                     pkgs.nerd-fonts.fira-code
                   ];
 
                   system.stateVersion = "24.05";
