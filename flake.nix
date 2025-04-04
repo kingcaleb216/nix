@@ -67,9 +67,9 @@
                   ];
 
                   system.stateVersion = "24.05";
-               }),
+               })
 
-               home-manager.nixosModules.home-manager,
+               home-manager.nixosModules.home-manager
 
                ({ config, pkgs, ... }: {
                   home-manager.useGlobalPkgs = true;
