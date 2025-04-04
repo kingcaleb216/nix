@@ -135,7 +135,7 @@
                      home.file.".config/wall.png".source = "${hyprlandDotfiles}/wall.png";
 
                      home.activation.applyTheme = ''
-                        ${hyprlandDotfiles}/theme.sh
+                        ${hyprlandDotfiles}/colors/applyPalette.sh
                      '';
                   };
                })
