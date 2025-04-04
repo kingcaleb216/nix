@@ -10,15 +10,18 @@
          url = "github:nix-community/home-manager";
          inputs.nixpkgs.follows = "nixpkgs";
       };
+      hyprlandDotfiles = {
+         url = "github:kingcaleb216/hyprland";
+         flake = false;
+      };
    };
 
-   outputs = { self, nixpkgs, home-manager }: let
+   outputs = { self, nixpkgs, home-manager, hyprlandDotfiles }: let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
          inherit system;
          config.allowUnfree = true;
       };
-      hyprlandDotfiles = ./home/hyprland;
    in {
       nixosConfigurations = {
          laptop = nixpkgs.lib.nixosSystem {
@@ -29,7 +32,7 @@
                   imports = [ ./hardware-configuration.nix ];
 
                   networking.hostName = "laptop";
-                  time.timeZone = "America/New_York";
+                  time.timeZone = "America/Chicago";
                   i18n.defaultLocale = "en_US.UTF-8";
                   console.keyMap = "us";
 
@@ -122,8 +125,8 @@
                      home.file.".config/wall.png".source = "${hyprlandDotfiles}/wall.png";
 
                      home.activation.applyTheme = ''
-                        ${hyprlandDotfiles}/theme.sh
-                     '';
+  ${hyprlandDotfiles}/theme.sh
+'';
                   };
                })
             ];
