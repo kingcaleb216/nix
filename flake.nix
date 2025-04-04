@@ -76,7 +76,7 @@
                   ];
 
                   system.stateVersion = "24.05";
-               }),
+               })
 
                home-manager.nixosModules.home-manager
 
