@@ -28,7 +28,7 @@
                   imports = [ ./hardware-configuration.nix ];
 
                   networking.hostName = "laptop";
-                  time.timeZone = "America/New_York";
+                  time.timeZone = "America/Chicago";
                   i18n.defaultLocale = "en_US.UTF-8";
                   console.keyMap = "us";
 
@@ -120,7 +120,7 @@
 
                      home.file.".config/wall.png".source = "/opt/repos/hyprland/wall.png";
 
-                     home.activation.applyTheme = config.lib.hm.dag.entryAfter ["writeBoundary"] ''
+                     home.activation.applyTheme.text = ''
                         /opt/repos/hyprland/theme.sh
                      '';
                   };
