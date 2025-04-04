@@ -81,6 +81,10 @@
                      grub = {
                         enable = true;
                         efiSupport = true;
+                        forceInstall = false;
+                        devices = [ "/dev/sda" ];
+                        enable = true;
+                        efiSupport = true;
                         devices = [ "/dev/sda" ];
                      };
                   };
