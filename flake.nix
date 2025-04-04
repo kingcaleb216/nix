@@ -80,7 +80,6 @@
                      grub = {
                         enable = true;
                         efiSupport = true;
-                        useEfibootmgr = true;
                      };
                   };
 
