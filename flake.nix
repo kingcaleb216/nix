@@ -81,14 +81,12 @@
                         enable = true;
                         efiSupport = true;
                         devices = [ "/dev/sda" ];
-                     };
+                        enable = true;
+                        efiSupport = true;
+                                             };
                   };
 
-                  fileSystems."/boot" = {
-                     device = "/dev/sda1";
-                     fsType = "vfat";
-                  };
-
+                  
                   fonts.packages = with pkgs; [
                      dejavu_fonts
                      pkgs.nerd-fonts.fira-code
