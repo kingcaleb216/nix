@@ -11,7 +11,7 @@
          inputs.nixpkgs.follows = "nixpkgs";
       };
       hyprlandDotfiles = {
-         url = "github:yourusername/dotfiles-hyprland";
+         url = "github:kingcaleb216/hyprland";
          flake = false;
       };
    };
@@ -73,9 +73,20 @@
                      pulse.enable = true;
                   };
 
-                  boot.loader.grub = {
-                     enable = true;
-                     devices = [ "/dev/sda" ];
+                  boot.loader = {
+                     efi = {
+                        canTouchEfiVariables = true;
+                     };
+                     grub = {
+                        enable = true;
+                        efiSupport = true;
+                        useEfibootmgr = true;
+                     };
+                  };
+
+                  fileSystems."/boot" = {
+                     device = "/dev/sda1";
+                     fsType = "vfat";
                   };
 
                   fonts.packages = with pkgs; [
@@ -125,8 +136,8 @@
                      home.file.".config/wall.png".source = "${hyprlandDotfiles}/wall.png";
 
                      home.activation.applyTheme = ''
-  ${hyprlandDotfiles}/theme.sh
-'';
+                        ${hyprlandDotfiles}/theme.sh
+                     '';
                   };
                })
             ];
