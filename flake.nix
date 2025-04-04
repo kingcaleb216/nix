@@ -81,11 +81,13 @@
                      grub = {
                         enable = true;
                         efiSupport = true;
+                        efiInstallAsRemovable = false;
+                        useOSProber = false;
                         forceInstall = false;
-                        devices = [ "/dev/sda" ];
+                        devices = [ "nodev" ];
+                        targets = [ "x86_64-efi" ];
                      };
                   };
-
                   
                   fonts.packages = with pkgs; [
                      dejavu_fonts
