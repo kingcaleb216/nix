@@ -120,7 +120,7 @@
 
                      home.file.".config/wall.png".source = "/opt/repos/hyprland/wall.png";
 
-                     home.activation.applyTheme = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+                     home.activation.applyTheme = ''
                         /opt/repos/hyprland/theme.sh
                      '';
                   };
