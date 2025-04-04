@@ -18,6 +18,7 @@
          inherit system;
          config.allowUnfree = true;
       };
+      hyprlandDotfiles = ./home/hyprland;
    in {
       nixosConfigurations = {
          laptop = nixpkgs.lib.nixosSystem {
@@ -28,7 +29,7 @@
                   imports = [ ./hardware-configuration.nix ];
 
                   networking.hostName = "laptop";
-                  time.timeZone = "America/Chicago";
+                  time.timeZone = "America/New_York";
                   i18n.defaultLocale = "en_US.UTF-8";
                   console.keyMap = "us";
 
@@ -112,16 +113,16 @@
                      programs.kitty.enable = true;
 
                      xdg.configFile = {
-                        "hypr".source = "/opt/repos/hyprland/hypr";
-                        "kitty/kitty.conf".source = "/opt/repos/hyprland/kitty/kitty.conf";
-                        "waybar/config".source = "/opt/repos/hyprland/waybar/config";
-                        "waybar/style.css".source = "/opt/repos/hyprland/waybar/style.css";
+                        "hypr".source = "${hyprlandDotfiles}/hypr";
+                        "kitty/kitty.conf".source = "${hyprlandDotfiles}/kitty/kitty.conf";
+                        "waybar/config".source = "${hyprlandDotfiles}/waybar/config";
+                        "waybar/style.css".source = "${hyprlandDotfiles}/waybar/style.css";
                      };
 
-                     home.file.".config/wall.png".source = "/opt/repos/hyprland/wall.png";
+                     home.file.".config/wall.png".source = "${hyprlandDotfiles}/wall.png";
 
                      home.activation.applyTheme = ''
-                        /opt/repos/hyprland/theme.sh
+                        ${hyprlandDotfiles}/theme.sh
                      '';
                   };
                })
