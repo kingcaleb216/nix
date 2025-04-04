@@ -28,7 +28,7 @@
                   imports = [ ./hardware-configuration.nix ];
 
                   networking.hostName = "laptop";
-                  time.timeZone = "America/New_York";
+                  time.timeZone = "America/Chicago";
                   i18n.defaultLocale = "en_US.UTF-8";
                   console.keyMap = "us";
 
@@ -45,11 +45,20 @@
                      xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland
                      mesa vulkan-loader
                      fontconfig dejavu_fonts
-                     ly fastfetch
+                     fastfetch
                   ];
 
                   services.xserver.enable = true;
-                  services.xserver.displayManager.ly.enable = true;
+
+                  services.greetd = {
+                     enable = true;
+                     settings = {
+                        default_session = {
+                           command = "Hyprland";
+                           user = "caleb";
+                        };
+                     };
+                  };
 
                   programs.zsh.enable = true;
 
@@ -67,7 +76,7 @@
                   ];
 
                   system.stateVersion = "24.05";
-               })
+               }),
 
                home-manager.nixosModules.home-manager
 
