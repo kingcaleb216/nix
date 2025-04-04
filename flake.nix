@@ -133,11 +133,7 @@
                         "waybar/style.css".source = "${hyprlandDotfiles}/waybar/style.css";
                      };
 
-                     home.file.".config/wall.png".source = "${hyprlandDotfiles}/wall.png";
-
-                     home.activation.applyTheme = ''
-                        ${hyprlandDotfiles}/colors/applyPalette.sh
-                     '';
+                     home.file.".config/wall.png".source = "${hyprlandDotfiles}/swww/wallpaper.jpg";
                   };
                })
             ];
