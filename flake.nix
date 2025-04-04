@@ -28,7 +28,7 @@
                   imports = [ ./hardware-configuration.nix ];
 
                   networking.hostName = "laptop";
-                  time.timeZone = "America/Chicago";
+                  time.timeZone = "America/New_York";
                   i18n.defaultLocale = "en_US.UTF-8";
                   console.keyMap = "us";
 
@@ -62,12 +62,16 @@
 
                   programs.zsh.enable = true;
 
-                  sound.enable = true;
                   hardware.pulseaudio.enable = false;
                   services.pipewire = {
                      enable = true;
                      audio.enable = true;
                      pulse.enable = true;
+                  };
+
+                  boot.loader.grub = {
+                     enable = true;
+                     devices = [ "/dev/sda" ];
                   };
 
                   fonts.packages = with pkgs; [
