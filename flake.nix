@@ -81,8 +81,6 @@
                         enable = true;
                         efiSupport = true;
                         devices = [ "/dev/sda" ];
-                        enable = true;
-                        efiSupport = true;
                                              };
                   };
 
